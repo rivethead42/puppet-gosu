@@ -7,13 +7,16 @@ class gosu::install(
 ) {
   include wget
 
-  wget::fetch { "https://github.com/tianon/gosu/releases/download/${gosu_version}/gosu-${::architecture}":
+  wget::fetch { "download_gosu":
+    source      => "https://github.com/tianon/gosu/releases/download/${gosu_version}/gosu-${::architecture}",
     destination => '/usr/local/bin/gosu',
     timeout     => 0,
     verbose     => false,
     mode        => "+x",
   }
-  -> exec { 'gosu nobody true':
-    path => '/usr/local/bin',
+
+  exec { 'gosu nobody true':
+    path    => '/usr/local/bin',
+    require => Wget::fetch['download_gosu'],
   }
 }
