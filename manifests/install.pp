@@ -3,7 +3,7 @@
 # This class is called from gosu for install.
 #
 class gosu::install(
-  $gosu_version,
+  $gosu_version = $gosu::gosu_version,
 ) {
   include wget
 
