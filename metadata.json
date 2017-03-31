@@ -1,0 +1,37 @@
+{
+  "name": "tthomsen-gosu",
+  "version": "0.1.0",
+  "author": "Travis N. Thomsen <travis@linuxacademy.com>",
+  "summary": "This module installs gosu.",
+  "license": "Apache 2.0",
+  "source": "git@github.com:rivethead42/puppet-gosu.git",
+  "project_page": "https://github.com/rivethead42/puppet-gosu",
+  "issues_url": "https://github.com/rivethead42/puppet-gosu/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 1.0.0"
+    },
+    {
+      "name": "maestrodev-wget",
+      "version_requirement": ">= 1.7.3"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    }
+  ]
+}
