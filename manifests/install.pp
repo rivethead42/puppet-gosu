@@ -11,9 +11,9 @@ class gosu::install(
     destination => '/usr/local/bin/gosu',
     timeout     => 0,
     verbose     => false,
-    mode        => "+x"
+    mode        => "+x",
   }
-  -> exec { 'gosu nobody true'
+  -> exec { 'gosu nobody true':
     path => '/usr/local/bin',
   }
 }
