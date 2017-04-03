@@ -12,10 +12,14 @@ class gosu::install(
     destination => '/usr/local/bin/gosu',
     timeout     => 0,
     verbose     => false,
-    mode        => "a+x",
+    mode        => ['a+x', '755'],
+  }
+
+  file { '/usr/local/bin/gosu':
+    mode => 'a+x',
   }
 
   exec { '/usr/local/bin/gosu nobody true':
-    require => Wget::Fetch['download_gosu'],
+    require => File['/usr/local/bin/gosu'],
   }
 }
