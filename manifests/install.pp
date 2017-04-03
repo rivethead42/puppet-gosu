@@ -14,12 +14,10 @@ class gosu::install(
     verbose     => false,
     mode        => ['a+x', '755'],
   }
-
-  file { '/usr/local/bin/gosu':
-    mode => 'a+x',
+  -> file { '/usr/local/bin/gosu':
+    ensure => file,
+    mode   => 'a+x',
   }
-
-  exec { '/usr/local/bin/gosu nobody true':
-    require => File['/usr/local/bin/gosu'],
+  -> exec { '/usr/local/bin/gosu nobody true':
   }
 }
